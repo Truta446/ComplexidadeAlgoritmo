@@ -19,10 +19,16 @@ function insertionSorting(unsortedList) {
     }
   }
   
-  function insertionSort(array_numeros) {
-    INICIO = performance.now();
-    insertionSorting(array_numeros);
-    FIM = performance.now();
+  function insertionSort() {
+    ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
+    let vetor_numeros = ARRAY_DESORDENADO;
+
+    let inicio = performance.now();
+    insertionSorting(vetor_numeros);
+    let fim = performance.now();
+
+    ARRAY_ORDENADO = vetor_numeros;
     
-    INSERTIONSORT = FIM - INICIO;
+    INSERTIONSORT = parseFloat(fim - inicio);
+    INSERTIONSORT_ARRAY.push(INSERTIONSORT);
   }
