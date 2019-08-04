@@ -46,6 +46,7 @@ function merge(list1, list2) {
    * @param {Array} array_numeros 
    */
   function mergeSort() {
+    ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
     let vetor_numeros = ARRAY_DESORDENADO;
 
     let inicio = performance.now();
@@ -55,4 +56,5 @@ function merge(list1, list2) {
     ARRAY_ORDENADO = array_ordenado;
 
     MERGESORT = parseFloat(fim - inicio);
+    MERGESORT_ARRAY.push(MERGESORT);
   }

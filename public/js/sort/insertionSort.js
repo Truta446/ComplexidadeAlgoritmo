@@ -20,6 +20,7 @@ function insertionSorting(unsortedList) {
   }
   
   function insertionSort() {
+    ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
     let vetor_numeros = ARRAY_DESORDENADO;
 
     let inicio = performance.now();
@@ -29,4 +30,5 @@ function insertionSorting(unsortedList) {
     ARRAY_ORDENADO = vetor_numeros;
     
     INSERTIONSORT = parseFloat(fim - inicio);
+    INSERTIONSORT_ARRAY.push(INSERTIONSORT);
   }

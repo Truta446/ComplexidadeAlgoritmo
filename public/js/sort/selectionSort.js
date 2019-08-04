@@ -25,6 +25,7 @@ function selectionSorting(items) {
   }
   
 function selectionSort() {
+  ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
   let vetor_numeros = ARRAY_DESORDENADO;
 
   let inicio = performance.now();
@@ -34,4 +35,5 @@ function selectionSort() {
   ARRAY_ORDENADO = vetor_numeros;
 
   SELECTIONSORT = parseFloat(fim - inicio);
+  SELECTIONSORT_ARRAY.push(SELECTIONSORT);
 }

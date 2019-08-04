@@ -24,15 +24,15 @@ function bubbleSorting(items) {
  * Implementation of bubbleSort
  */
 function bubbleSort() {
-    console.log(ARRAY_DESORDENADO);
+    ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
     let vetor_numeros = ARRAY_DESORDENADO;
 
     let inicio = performance.now();
     bubbleSorting(vetor_numeros);
     let fim = performance.now();
-    console.log(ARRAY_DESORDENADO);
 
     ARRAY_ORDENADO = vetor_numeros;
 
     BUBBLESORT = parseFloat(fim - inicio);
+    BUBBLESORT_ARRAY.push(BUBBLESORT);
 }

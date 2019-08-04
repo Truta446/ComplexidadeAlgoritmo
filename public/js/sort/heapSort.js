@@ -50,6 +50,7 @@ Array.prototype.heapify = function (index, heapSize) {
   }
   
 function heapSort() {
+  ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
   let vetor_numeros = ARRAY_DESORDENADO;
 
   let inicio = performance.now();
@@ -59,4 +60,5 @@ function heapSort() {
   ARRAY_ORDENADO = vetor_numeros;
 
   HEAPSORT = parseFloat(fim - inicio);
+  HEAPSORT_ARRAY.push(HEAPSORT);
 }

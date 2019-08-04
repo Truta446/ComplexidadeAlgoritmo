@@ -51,6 +51,7 @@ function partition(arr, left, right) {
 }
 
 function quickSort() {
+    ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
     let vetor = ARRAY_DESORDENADO
     let vetor_numeros = vetor;
 
@@ -61,4 +62,5 @@ function quickSort() {
     ARRAY_ORDENADO = array_ordenado;
 
     QUICKSORT = parseFloat(fim - inicio);
+    QUICKSORT_ARRAY.push(QUICKSORT);
 }

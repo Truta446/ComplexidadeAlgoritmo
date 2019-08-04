@@ -18,7 +18,7 @@ function geraGrafico() {
                 type: 'none'
             },
             formatter: function (params) {
-                return params[0].name + ': ' + params[0].value;
+                return `${params[0].name}: ${params[0].value} ms`;
             }
         },
         xAxis: {
@@ -51,7 +51,7 @@ function geraGrafico() {
                     opacity: 1
                 }
             },
-            data: [QUICKSORT, MERGESORT, INSERTIONSORT, SELECTIONSORT, HEAPSORT, BUBBLESORT],
+            data: [QUICKSORT_MEDIA, MERGESORT_MEDIA, INSERTIONSORT_MEDIA, SELECTIONSORT_MEDIA, HEAPSORT_MEDIA, BUBBLESORT_MEDIA],
             z: 10
         }, {
             name: 'glyph',
@@ -61,27 +61,27 @@ function geraGrafico() {
             symbolSize: 50,
             symbolOffset: [0, '-120%'],
             data: [{
-                value: QUICKSORT,
+                value: QUICKSORT_MEDIA,
                 symbol: pathSymbols.rocket,
                 symbolSize: [50, 70]
             }, {
-                value: MERGESORT,
+                value: MERGESORT_MEDIA,
                 symbol: pathSymbols.plane,
                 symbolSize: [65, 35]
             }, {
-                value: INSERTIONSORT,
+                value: INSERTIONSORT_MEDIA,
                 symbol: pathSymbols.train,
                 symbolSize: [50, 30]
             }, {
-                value: SELECTIONSORT,
+                value: SELECTIONSORT_MEDIA,
                 symbol: pathSymbols.car,
                 symbolSize: [40, 30]
             }, {
-                value: HEAPSORT,
+                value: HEAPSORT_MEDIA,
                 symbol: pathSymbols.run,
                 symbolSize: [40, 50]
             }, {
-                value: BUBBLESORT,
+                value: BUBBLESORT_MEDIA,
                 symbol: pathSymbols.walk,
                 symbolSize: [40, 50]
             }]
