@@ -20,13 +20,12 @@ function quickSorting(arr, left = 0, right = arr.length - 1) {
         if(index < right) {
             quickSorting(arr, index, right);
         }
-  
     }
   
     return arr;
   }
 
-  function partition(arr, left, right) {
+function partition(arr, left, right) {
     let middle = Math.floor((right + left) / 2),
         pivot = arr[middle],
         i = left,
@@ -51,11 +50,15 @@ function quickSorting(arr, left = 0, right = arr.length - 1) {
     return i;
 }
 
-function quickSort(array_numeros) {
-    INICIO = performance.now();
-    const array_ordenado = quickSorting(array_numeros);
-    FIM = performance.now();
-    console.log(`QUICKSORT:${array_ordenado}`);
+function quickSort() {
+    let vetor = ARRAY_DESORDENADO
+    let vetor_numeros = vetor;
 
-    QUICKSORT = FIM - INICIO;
+    let inicio = performance.now();
+    const array_ordenado = quickSorting(vetor_numeros);
+    let fim = performance.now();
+
+    ARRAY_ORDENADO = array_ordenado;
+
+    QUICKSORT = parseFloat(fim - inicio);
 }

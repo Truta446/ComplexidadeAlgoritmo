@@ -49,10 +49,14 @@ Array.prototype.heapify = function (index, heapSize) {
     return items;
   }
   
-function heapSort(array_numeros) {
-  INICIO = performance.now();
-  heapSorting(array_numeros);
-  FIM = performance.now();
+function heapSort() {
+  let vetor_numeros = ARRAY_DESORDENADO;
 
-  HEAPSORT = FIM - INICIO;
+  let inicio = performance.now();
+  heapSorting(vetor_numeros);
+  let fim = performance.now();
+
+  ARRAY_ORDENADO = vetor_numeros;
+
+  HEAPSORT = parseFloat(fim - inicio);
 }

@@ -1,8 +1,9 @@
-/*Bubble Sort is a algorithm to sort an array. It
-* compares adjacent element and swaps thier position
-* The big O on bubble sort in worst and best case is O(N^2). 
+/** 
+ * Bubble Sort is a algorithm to sort an array. It
+ * compares adjacent element and swaps thier position
+ * The big O on bubble sort in worst and best case is O(N^2). 
  * Not efficient.
-*/
+ */
 function bubbleSorting(items) {
     let length = items.length;
     for (let i = (length - 1); i > 0; i--) {
@@ -22,10 +23,16 @@ function bubbleSorting(items) {
 /**
  * Implementation of bubbleSort
  */
-function bubbleSort(array_numeros) {
-    INICIO = performance.now();
-    bubbleSorting(array_numeros);
-    FIM = performance.now();
+function bubbleSort() {
+    console.log(ARRAY_DESORDENADO);
+    let vetor_numeros = ARRAY_DESORDENADO;
 
-    BUBBLESORT = FIM - INICIO;
+    let inicio = performance.now();
+    bubbleSorting(vetor_numeros);
+    let fim = performance.now();
+    console.log(ARRAY_DESORDENADO);
+
+    ARRAY_ORDENADO = vetor_numeros;
+
+    BUBBLESORT = parseFloat(fim - inicio);
 }

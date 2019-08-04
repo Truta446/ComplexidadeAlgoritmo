@@ -42,13 +42,17 @@ function merge(list1, list2) {
   }
 
   /**
-   * Função principal.
+   * Função principal do MergeSort.
    * @param {Array} array_numeros 
    */
-  function mergeSort(array_numeros) {
-    INICIO = performance.now();
-    const array_ordenado = mergeSorting(array_numeros);
-    FIM = performance.now();
+  function mergeSort() {
+    let vetor_numeros = ARRAY_DESORDENADO;
 
-    MERGESORT = FIM - INICIO;
+    let inicio = performance.now();
+    const array_ordenado = mergeSorting(vetor_numeros);
+    let fim = performance.now();
+
+    ARRAY_ORDENADO = array_ordenado;
+
+    MERGESORT = parseFloat(fim - inicio);
   }
