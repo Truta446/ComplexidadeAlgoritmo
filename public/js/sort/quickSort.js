@@ -50,7 +50,6 @@ function partition(arr, left, right) {
     return i;
 }
 
-
 function quickSort() {
     ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
     let vetor = ARRAY_DESORDENADO
