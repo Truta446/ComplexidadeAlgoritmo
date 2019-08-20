@@ -1,4 +1,3 @@
-// Based on prepared DOM, initialize echarts instance
 const myChart = echarts.init(document.getElementById('main'));
 
 function geraGrafico() {
@@ -88,6 +87,5 @@ function geraGrafico() {
         }]
     };
 
-    // Use configuration item and data specified to show chart
     myChart.setOption(option);
 }
