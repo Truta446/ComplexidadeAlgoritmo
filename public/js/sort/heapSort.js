@@ -1,54 +1,60 @@
-/*
-* Build a max heap out of the array. A heap is a specialized tree like
-* data structure that satisfies the heap property. The heap property
-* for max heap is the following: "if P is a parent node of C, then the
-* key (the value) of node P is greater than the key of node C"
-* Source: https://en.wikipedia.org/wiki/Heap_(data_structure)
-*/
-Array.prototype.heapify = function (index, heapSize) {
+Array.prototype.heapify = function (index, tamanho_pilha) {
+  let maior = index;
+  let index_esquerdo = 2 * index + 1;
+  let index_direito = 2 * index + 2;
 
-    let largest = index;
-    let leftIndex = 2 * index + 1;
-    let rightIndex = 2 * index + 2;
-  
-    if (leftIndex < heapSize && this[leftIndex] > this[largest]) {
-      largest = leftIndex;
-    }
-  
-    if (rightIndex < heapSize && this[rightIndex] > this[largest]) {
-      largest = rightIndex;
-    }
-  
-    if (largest !== index) {
-      let temp = this[largest];
-      this[largest] = this[index];
-      this[index] = temp;
-  
-      this.heapify(largest, heapSize);
-    }
-  };
-  
-  /*
-  * Heap sort sorts an array by building a heap from the array and
-  * utilizing the heap property.
-  * For more information see: https://en.wikipedia.org/wiki/Heapsort
-  */
-  function heapSorting(items) {
-  
-   let length = items.length;
-  
-    for (let i = Math.floor(length / 2) - 1; i > -1; i--) {
-      items.heapify(i, length);
-    }
-    for (let j = length -1; j > 0; j--) {
-      let tmp = items[0];
-      items[0] = items[j];
-      items[j] = tmp;
-      items.heapify(0, j);
-    }
-    return items;
+  if (index_esquerdo < tamanho_pilha && this[index_esquerdo] > this[maior]) {
+    maior = index_esquerdo;
   }
+
+  if (index_direito < tamanho_pilha && this[index_direito] > this[maior]) {
+    maior = index_direito;
+  }
+
+  if (maior !== index) {
+    let temp = this[maior];
+    this[maior] = this[index];
+    this[index] = temp;
+
+    this.heapify(maior, tamanho_pilha);
+  }
+};
   
+/**
+ * O heapsort utiliza uma estrutura de dados chamada heap,
+ * para ordenar os elementos à medida que os insere na estrutura.
+ * Assim, ao final das inserções, os elementos podem ser sucessivamente
+ * removidos da raiz da heap, na ordem desejada,
+ * lembrando-se sempre de manter a propriedade de max-heap.
+ * 
+ * A heap pode ser representada como uma árvore (uma árvore binária
+ * com propriedades especiais) ou como um vetor.
+ * Para uma ordenação decrescente, deve ser construída uma heap mínima
+ * (o menor elemento fica na raiz). Para uma ordenação crescente,
+ * deve ser construído uma heap máxima (o maior elemento fica na raiz).
+ * 
+ * @param {Array} items 
+ */
+function heapSorting(items) {
+  let length = items.length;
+  
+  for (let i = Math.floor(length / 2) - 1; i > -1; i--) {
+    items.heapify(i, length);
+  }
+
+  for (let j = length -1; j > 0; j--) {
+    let tmp = items[0];
+    items[0] = items[j];
+    items[j] = tmp;
+    items.heapify(0, j);
+  }
+
+  return items;
+}
+
+/**
+ * Chamada do HeapSort
+ */
 function heapSort() {
   ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
   let vetor_numeros = ARRAY_DESORDENADO;

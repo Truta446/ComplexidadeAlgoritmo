@@ -1,17 +1,16 @@
 function inicializaOrdenacao() {
-    COUNT++;
-    geraArray();
-    bubbleSort();
-    insertionSort();
-    heapSort();
-    quickSort();
-    selectionSort();
-    mergeSort();
-
-    if (COUNT >= 5) {
-        geraTabela();
-        geraGrafico();
+    for(let i = 0; i < 5; i++) {
+        geraArray();
+        bubbleSort();
+        insertionSort();
+        heapSort();
+        quickSort();
+        selectionSort();
+        mergeSort();
     }
+    
+    geraTabela();
+    geraGrafico();
 }
 
 function geraTabela() {
@@ -121,9 +120,11 @@ function geraTabela() {
 function geraArray() {
     let array_numeros = new Array();
 
-    if (document.getElementById('numeros').value === "") {
-        for(let i = 0; i < 10000; i++) {
-            array_numeros.push(parseInt(Math.floor(Math.random() * 100000)));
+    if (document.getElementById("switch_array").checked == true) {
+        let tamanho_array = document.getElementById("select_tamanho_array").value;
+
+        for(let i = 0; i < tamanho_array; i++) {
+            array_numeros.push(parseInt(Math.floor(Math.random() * (tamanho_array * 10))));
         }
     } else {
         array_numeros = document.getElementById('numeros').value;
@@ -158,9 +159,40 @@ function mostraArray(tipo_ordenacao) {
     `;
 }
 
+function switchFunction() {
+    if (document.getElementById("switch_array").checked == true) {
+        document.getElementById("select_array").innerHTML = `
+            <div class="input-field col s12">
+                <select id="select_tamanho_array">
+                    <option value="" disabled selected>Escolha uma opção</option>
+                    <option value="10">10</option>
+                    <option value="100">100</option>
+                    <option value="1000">1000</option>
+                    <option value="10000">10000</option>
+                    <option value="100000">100000</option>
+                </select>
+                <label>Números para serem ordenados</label>
+            </div>
+        `;
+
+        const elems = document.querySelectorAll('select');
+        M.FormSelect.init(elems);
+    } else {
+        document.getElementById("select_array").innerHTML = `
+            <div class="input-field col s12">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="numeros" class="materialize-textarea"></textarea>
+                <label for="numeros">Insira a cadeia de números a serem ordenados.</label>
+            </div>
+        `;
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const floating = document.querySelectorAll('.fixed-action-btn');
     const tooltip = document.querySelectorAll('.tooltipped');
+    const elems = document.querySelectorAll('select');
     M.Tooltip.init(tooltip);
     M.FloatingActionButton.init(floating);
+    M.FormSelect.init(elems);
 });

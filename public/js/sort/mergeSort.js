@@ -1,17 +1,18 @@
 /**
- * Merge Sort is an algorithm where the main list is divided down into two half
- * sized lists, which then have merge sort called on these two smaller lists 
- * recursively until there is only a sorted list of one.
- * 
- * On the way up the recursive calls, the lists will be merged together inserting
- * the smaller value first, creating a larger sorted list.
+ * Os três passos úteis dos algoritmos de divisão e conquista
+ *  que se aplicam ao merge sort são:
+ * 1º - Dividir: Calcula o ponto médio do sub-arranjo, o que demora um tempo constante O(1);
+ * 2º - Conquistar: Recursivamente resolve dois subproblemas, cada um de tamanho n/2,
+ * o que contribui com 2T(n/2) para o tempo de execução;
+ * 3º - Combinar: Unir os sub-arranjos em um único conjunto ordenado,
+ * que leva o tempo O(n).
  */
 
 /**
- * Sort and merge two given arrays
- * @param {Array} list1 - sublist to break down
- * @param {Array} list2 - sublist to break down
- * @return {Array} merged list
+ * Ordena e junta os dois arrays dados
+ * @param {Array} list1 - 1ª sublista após ser quebrada
+ * @param {Array} list2 - 2º sublista após ser quebrada
+ * @return {Array} Lista ordenada
  */
 function merge(list1, list2) {
     var results = [];
@@ -26,35 +27,34 @@ function merge(list1, list2) {
     return results.concat(list1, list2);
   }
   
-  /**
-   * Break down the lists into smaller pieces to be merged
-   * @param {Array} list - list to be sorted
-   * @return {Array} sorted list
-   */
-  function mergeSorting(list) {
-    if (list.length < 2) return list;
-  
-    var listHalf = Math.floor(list.length/2);
-    var subList1 = list.slice(0, listHalf);
-    var subList2 = list.slice(listHalf, list.length);
-  
-    return merge(mergeSorting(subList1), mergeSorting(subList2));
-  }
+/**
+ * Quebrando a lsita em pequenos pedaços para serem ordenados.
+ * @param {Array} list - Lista para ser ordenada.
+ * @return {Array} Lista ordenada
+ */
+function mergeSorting(list) {
+  if (list.length < 2) return list;
 
-  /**
-   * Função principal do MergeSort.
-   * @param {Array} array_numeros 
-   */
-  function mergeSort() {
-    ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
-    let vetor_numeros = ARRAY_DESORDENADO;
+  var metade_lista = Math.floor(list.length/2);
+  var sub_lista1 = list.slice(0, metade_lista);
+  var sub_lista2 = list.slice(metade_lista, list.length);
 
-    let inicio = performance.now();
-    const array_ordenado = mergeSorting(vetor_numeros);
-    let fim = performance.now();
+  return merge(mergeSorting(sub_lista1), mergeSorting(sub_lista2));
+}
 
-    ARRAY_ORDENADO = array_ordenado;
+/**
+ * Chamada do MergeSort
+ */
+function mergeSort() {
+  ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
+  let vetor_numeros = ARRAY_DESORDENADO;
 
-    MERGESORT = parseFloat(fim - inicio);
-    MERGESORT_ARRAY.push(MERGESORT);
-  }
+  let inicio = performance.now();
+  const array_ordenado = mergeSorting(vetor_numeros);
+  let fim = performance.now();
+
+  ARRAY_ORDENADO = array_ordenado;
+
+  MERGESORT = parseFloat(fim - inicio);
+  MERGESORT_ARRAY.push(MERGESORT);
+}

@@ -1,35 +1,48 @@
 /**
- * Encontrar o pivot no array para comparar com
- * todos os demais elementos do array.
+ * O algoritmo quicksort é um método de ordenação muito rápido e eficiente,
+ * inventado por C.A.R. Hoare em 1960, quando visitou a Universidade de Moscovo
+ * como estudante. Naquela época, Hoare trabalhou em um projeto de tradução de
+ * máquina para o National Physical Laboratory. Ele criou o quicksort ao tentar
+ * traduzir um dicionário de inglês para russo, ordenando as palavras, tendo como
+ * objetivo reduzir o problema original em subproblemas que possam ser resolvidos
+ * mais fácil e rápido. Foi publicado em 1962 após uma série de refinamentos.
  * 
  * @param {Array} arr 
- * @param {Int} left 
- * @param {Int} right 
+ * @param {Int} esquerda 
+ * @param {Int} direita 
  */
-function quickSorting(arr, left = 0, right = arr.length - 1) {
+function quickSorting(arr, esquerda = 0, direita = arr.length - 1) {
     let len = arr.length,
         index;
   
     if(len > 1) {
-        index = partition(arr, left, right);
+        index = partition(arr, esquerda, direita);
     
-        if(left < index - 1) {
-            quickSorting(arr, left, index - 1);
+        if(esquerda < index - 1) {
+            quickSorting(arr, esquerda, index - 1);
         } 
     
-        if(index < right) {
-            quickSorting(arr, index, right);
+        if(index < direita) {
+            quickSorting(arr, index, direita);
         }
     }
   
     return arr;
-  }
+}
 
-function partition(arr, left, right) {
-    let middle = Math.floor((right + left) / 2),
-        pivot = arr[middle],
-        i = left,
-        j = right;
+/**
+ * Encontrar o pivot para comparar com
+ * todos os demais elementos do array.
+ * 
+ * @param {Array} arr 
+ * @param {int} esquerda 
+ * @param {int} direita 
+ */
+function partition(arr, esquerda, direita) {
+    let meio = Math.floor((direita + esquerda) / 2),
+        pivot = arr[meio],
+        i = esquerda,
+        j = direita;
   
     while(i <= j) {
         while(arr[i] < pivot) {
@@ -50,6 +63,9 @@ function partition(arr, left, right) {
     return i;
 }
 
+/**
+ * Chamada do QuickSort
+ */
 function quickSort() {
     ARRAY_DESORDENADO = transformaArray(document.getElementById('hide_array').value);
     let vetor = ARRAY_DESORDENADO
