@@ -10,7 +10,7 @@ function inicializaOrdenacao() {
     }
     
     geraTabela();
-    geraGrafico();
+    geraGraficoOrdenacao();
 }
 
 function geraTabela() {
