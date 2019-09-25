@@ -1,4 +1,4 @@
-const myChart2 = echarts.init(document.getElementById('main'));
+const myChart2 = echarts.init(document.getElementById('mainGraph'));
 
 function geraGraficoGrafos() {
     option = {
@@ -51,13 +51,8 @@ function geraGraficoGrafos() {
                     symbolSize: [5, 20],
                     label: {
                         normal: {
-                            show: true
-                        }
-                    },
-                    lineStyle: {
-                        normal: {
-                            width: 5,
-                            curveness: 0.2
+                            show: true,
+                            text: "oi"
                         }
                     }
                 }, {
@@ -67,9 +62,6 @@ function geraGraficoGrafos() {
                         normal: {
                             show: true
                         }
-                    },
-                    lineStyle: {
-                        normal: { curveness: 0.2 }
                     }
                 }, {
                     source: '1',
