@@ -11,24 +11,24 @@
     </head>
     <body>
         <div class="navbar-fixed">
+            <ul id="dropdown1" class="dropdown-content">
+                <li><a href="./dijkstra.html">Caminho Mínimo - Dijkstra</a></li>
+                <li class="divider"></li>
+                <li><a href="./krustal.html">Árvore Geradora Mínima - Krustal</a></li>
+            </ul>
             <nav>
                 <div class="nav-wrapper">
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="./ordenacao.html">Ordenações</a></li>
-                        <li class="active"><a href="./grafos.html">Grafos</a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Grafos - Dijkstra && Krustal<i class="material-icons right">arrow_drop_down</i></a></li>
                     </ul>
                 </div>
             </nav>
         </div>
 
-        <div id="mainGraph" class="card-panel" style="width:100%;height:700px;text-align:center"></div>
-
+        <script src="../public/js/jquery.min.js" type="text/javascript"></script>
         <script src="../public/js/materialize.js" type="text/javascript"></script>
-        <script src="../public/js/echarts.js" type="text/javascript"></script>
-        <script src="../public/js/graph/graphChart.js" type="text/javascript"></script>
-        <script>
-            geraGraficoGrafos();
-        </script>
+        <script src="../public/js/main.js" type="text/javascript"></script>
     </body>
 </html>
