@@ -3,7 +3,7 @@ const myChart2 = echarts.init(document.getElementById('mainGraph'));
 function geraGraficoGrafos() {
     option = {
         title: {
-            text: 'Graph Djisktra'
+            text: 'Graph Dijsktra'
         },
         tooltip: {},
         animationDurationUpdate: 1500,
