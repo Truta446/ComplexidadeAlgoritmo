@@ -195,4 +195,5 @@ document.addEventListener('DOMContentLoaded', () => {
     M.Tooltip.init(tooltip);
     M.FloatingActionButton.init(floating);
     M.FormSelect.init(elems);
+    $(".dropdown-trigger").dropdown();
 });
