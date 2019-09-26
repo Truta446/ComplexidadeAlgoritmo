@@ -12,12 +12,17 @@
     </head>
     <body>
         <div class="navbar-fixed">
+            <ul id="dropdown1" class="dropdown-content">
+                <li><a href="./views/dijkstra.html">Caminho Mínimo - Dijkstra</a></li>
+                <li class="divider"></li>
+                <li><a href="./views/krustal.html">Árvore Geradora Mínima - Krustal</a></li>
+            </ul>
             <nav>
                 <div class="nav-wrapper">
                     <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li><a href="./index.html">Home</a></li>
                         <li><a href="./views/ordenacao.html">Ordenações</a></li>
-                        <li><a href="./views/grafos.html">Grafos</a></li>
+                        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Grafos - Dijkstra && Krustal<i class="material-icons right">arrow_drop_down</i></a></li>
                     </ul>
                 </div>
             </nav>
