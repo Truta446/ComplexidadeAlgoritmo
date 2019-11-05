@@ -1,5 +1,3 @@
-geraGraficoGrafos();
-
 var dijkstra = new Dijkstra();
 
 dijkstra.setGraph(
